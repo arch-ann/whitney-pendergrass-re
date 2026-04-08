@@ -456,14 +456,54 @@ function advance(path,idx) {
 }
 
 function doSubmit(path) {
-    const n=document.getElementById('f-name');
-    const p=document.getElementById('f-phone');
-    const e=document.getElementById('f-email');
+    const nameEl=document.getElementById('f-name');
+    const phoneEl=document.getElementById('f-phone');
+    const emailEl=document.getElementById('f-email');
     let ok=true;
-    [n,p,e].forEach(el=>{ if(!el.value.trim()){el.classList.add('err');ok=false;}else el.classList.remove('err'); });
+    [nameEl,phoneEl,emailEl].forEach(el=>{ if(!el.value.trim()){el.classList.add('err');ok=false;}else el.classList.remove('err'); });
     if(!ok) return;
-    hist.push(()=>contactScreen(path));
-    endScreen(path);
+
+    const pathLabel = path==='investment' ? 'Investment Opportunities' : path==='sell' ? 'Sell a Home' : 'Buy a Home';
+    const data = {
+        _subject: `New Lead: ${nameEl.value.trim()} — ${pathLabel}`,
+        name:    nameEl.value.trim(),
+        phone:   phoneEl.value.trim(),
+        email:   emailEl.value.trim(),
+        inquiry: pathLabel
+    };
+
+    const extra = document.getElementById('f-addr') || document.getElementById('f-notes') || document.getElementById('f-pref');
+    if(extra && extra.value.trim()) {
+        data[extra.id==='f-addr' ? 'property_address' : extra.id==='f-notes' ? 'additional_notes' : 'preferred_contact'] = extra.value.trim();
+    }
+
+    Object.entries(S.answers).forEach(([key,val]) => {
+        if(key.startsWith(path+'__')) {
+            const label = key.replace(path+'__','').replace(/-/g,' ');
+            data[label] = val;
+        }
+    });
+
+    const btn = document.querySelector('.btn-submit');
+    if(btn) { btn.textContent='Sending…'; btn.style.opacity='0.6'; btn.style.pointerEvents='none'; }
+
+    fetch('https://formspree.io/f/xzdkqpzq', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(data)
+    })
+    .then(r=>r.json())
+    .then(res=>{
+        if(res.ok||res.next) {
+            hist.push(()=>contactScreen(path));
+            endScreen(path);
+        } else {
+            if(btn){ btn.textContent='Schedule Your Consultation'; btn.style.opacity='1'; btn.style.pointerEvents='all'; }
+        }
+    })
+    .catch(()=>{
+        if(btn){ btn.textContent='Schedule Your Consultation'; btn.style.opacity='1'; btn.style.pointerEvents='all'; }
+    });
 }
 
 pathChoice();
