@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Opportunities — Whitney Pendergrass Real Estate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Cammron';
+            src: url('Cammron-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Cammron';
+            src: url('Cammron-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+        }
+    </style>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #42444F;
+            --black: #161818;
+            --oxblood: #512923;
+            --olive: #5E5142;
+            --cream: #E2D6CC;
+            --cream-60: rgba(226, 214, 204, 0.6);
+            --cream-30: rgba(226, 214, 204, 0.3);
+            --cream-12: rgba(226, 214, 204, 0.12);
+            --cream-05: rgba(226, 214, 204, 0.05);
+            --oxblood-40: rgba(81, 41, 35, 0.4);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--navy);
+            color: var(--cream);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #app { min-height: 100vh; }
+
+        /* ── SCREEN SYSTEM ── */
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 56px 24px 80px;
+            animation: fadeUp 0.55s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── WORDMARK ── */
+        .wordmark {
+            text-align: center;
+            margin-bottom: 56px;
+            flex-shrink: 0;
+        }
+
+        .wm-script {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 48px;
+            color: var(--cream);
+            line-height: 1;
+            display: block;
+        }
+
+        .wm-serif {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: 17px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: var(--cream);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .wm-sub {
+            font-family: 'Jost', sans-serif;
+            font-size: 8.5px;
+            letter-spacing: 0.55em;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--cream-60);
+            display: block;
+            margin-top: 7px;
+        }
+
+        .wm-rule {
+            width: 36px;
+            height: 1px;
+            background: var(--cream-30);
+            margin: 14px auto 0;
+        }
+
+        .wordmark.sm .wm-script  { font-size: 36px; }
+        .wordmark.sm .wm-serif   { font-size: 13px; }
+        .wordmark.sm             { margin-bottom: 40px; }
+
+        /* ── HERO ── */
+        .hero-inner {
+            max-width: 820px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Jost', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--cream-60);
+            font-weight: 300;
+            margin-bottom: 28px;
+        }
+
+        .hero-headline {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 5vw, 58px);
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.2;
+            color: var(--cream);
+            margin-bottom: 14px;
+            max-width: 620px;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-rule {
+            width: 36px;
+            height: 1px;
+            background: var(--cream-30);
+            margin: 0 auto 52px;
+        }
+
+        .path-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            width: 100%;
+            max-width: 680px;
+        }
+
+        .path-card {
+            border: 1px solid rgba(226,214,204,0.18);
+            padding: 44px 32px 36px;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .path-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--oxblood);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 0;
+        }
+
+        .path-card:hover::after  { opacity: 1; }
+        .path-card:hover         { border-color: var(--oxblood); }
+        .path-card > *           { position: relative; z-index: 1; }
+
+        .pc-eyebrow {
+            font-family: 'Jost', sans-serif;
+            font-size: 8.5px;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--cream-60);
+            font-weight: 300;
+            margin-bottom: 14px;
+            transition: color 0.3s;
+        }
+
+        .path-card:hover .pc-eyebrow { color: var(--cream-60); }
+
+        .pc-title {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: clamp(22px, 2.8vw, 30px);
+            font-weight: 400;
+            color: var(--cream);
+            line-height: 1.2;
+            margin-bottom: 28px;
+        }
+
+        .pc-arrow {
+            font-size: 16px;
+            color: var(--cream-60);
+            display: inline-block;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .path-card:hover .pc-arrow {
+            transform: translateX(6px);
+            color: var(--cream);
+        }
+
+        /* ── BRANCH ── */
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            width: 100%;
+        }
+
+        /* ── QUESTION SCREENS ── */
+        .q-inner {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .progress-wrap {
+            width: 100%;
+            height: 1px;
+            background: var(--cream-12);
+            margin-bottom: 52px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--oxblood);
+            transition: width 0.5s ease;
+        }
+
+        .q-counter {
+            font-family: 'Jost', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: var(--cream-30);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .q-text {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 3.8vw, 40px);
+            font-weight: 300;
+            line-height: 1.25;
+            color: var(--cream);
+            margin-bottom: 10px;
+        }
+
+        .q-sub {
+            font-family: 'Jost', sans-serif;
+            font-size: 12.5px;
+            font-weight: 300;
+            color: var(--cream-60);
+            margin-bottom: 38px;
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        .opts-grid {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 44px;
+        }
+
+        .opts-grid.c2 { grid-template-columns: 1fr 1fr; }
+        .opts-grid.c3 { grid-template-columns: 1fr 1fr 1fr; }
+        .opts-grid.c1 { grid-template-columns: 1fr; }
+
+        .opt {
+            border: 1px solid rgba(226,214,204,0.16);
+            padding: 18px 22px;
+            cursor: pointer;
+            transition: border-color 0.22s ease, background 0.22s ease;
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: 16.5px;
+            font-weight: 400;
+            color: var(--cream);
+            text-align: left;
+            background: transparent;
+            position: relative;
+            line-height: 1.35;
+            user-select: none;
+        }
+
+        .opt:hover {
+            border-color: rgba(226,214,204,0.35);
+            background: var(--cream-05);
+        }
+
+        .opt.sel {
+            border-color: var(--oxblood);
+            background: var(--oxblood-40);
+        }
+
+        .opt.sel::after {
+            content: '✓';
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            color: var(--cream-60);
+        }
+
+        .nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-back {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--cream-30);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 0;
+            font-weight: 300;
+        }
+
+        .btn-back:hover { color: var(--cream); }
+
+        .btn-next {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--cream);
+            border: none;
+            cursor: pointer;
+            padding: 16px 38px;
+            transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+            font-weight: 400;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .btn-next.on {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .btn-next.on:hover {
+            background: var(--oxblood);
+            color: var(--cream);
+        }
+
+        /* ── CONTACT FORM ── */
+        .form-inner {
+            max-width: 520px;
+            width: 100%;
+        }
+
+        .form-headline {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 3.8vw, 40px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+
+        .form-sub {
+            font-family: 'Jost', sans-serif;
+            font-size: 12.5px;
+            font-weight: 300;
+            color: var(--cream-60);
+            margin-bottom: 44px;
+            line-height: 1.75;
+        }
+
+        .fgroup { margin-bottom: 28px; }
+
+        .flabel {
+            font-family: 'Jost', sans-serif;
+            font-size: 8.5px;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: var(--cream-60);
+            font-weight: 300;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .finput {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(226,214,204,0.22);
+            color: var(--cream);
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 300;
+            padding: 10px 0;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .finput:focus { border-bottom-color: var(--cream); }
+
+        .finput::placeholder {
+            color: rgba(226,214,204,0.18);
+            font-style: italic;
+        }
+
+        .finput.err { border-bottom-color: var(--oxblood) !important; }
+
+        textarea.finput {
+            resize: none;
+            height: 68px;
+            line-height: 1.5;
+        }
+
+        .form-privacy {
+            font-family: 'Jost', sans-serif;
+            font-size: 9.5px;
+            font-weight: 300;
+            color: rgba(226,214,204,0.28);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .btn-submit {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--cream);
+            border: none;
+            cursor: pointer;
+            padding: 18px 0;
+            width: 100%;
+            transition: background 0.3s ease, color 0.3s ease;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .btn-submit:hover {
+            background: var(--oxblood);
+            color: var(--cream);
+        }
+
+        /* ── END PAGE ── */
+        .end-inner {
+            max-width: 620px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .end-eyebrow {
+            font-family: 'Jost', sans-serif;
+            font-size: 8.5px;
+            letter-spacing: 0.55em;
+            text-transform: uppercase;
+            color: var(--cream-60);
+            font-weight: 300;
+            margin-bottom: 22px;
+        }
+
+        .end-headline {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 4vw, 44px);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .end-sub {
+            font-family: 'Jost', sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--cream-60);
+            line-height: 1.85;
+            margin-bottom: 44px;
+            max-width: 480px;
+        }
+
+        .end-divider {
+            width: 36px;
+            height: 1px;
+            background: var(--cream-30);
+            margin-bottom: 44px;
+        }
+
+        .end-points {
+            list-style: none;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 48px;
+        }
+
+        .end-points li {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: 17.5px;
+            font-weight: 400;
+            color: var(--cream);
+            padding: 18px 0;
+            border-bottom: 1px solid var(--cream-12);
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            line-height: 1.4;
+        }
+
+        .end-points li:first-child { border-top: 1px solid var(--cream-12); }
+
+        .end-points li::before {
+            content: '—';
+            color: var(--oxblood);
+            flex-shrink: 0;
+            font-family: 'Jost', sans-serif;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .end-contact {
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--cream-30);
+            font-weight: 300;
+            line-height: 2.2;
+        }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            border-top: 1px solid var(--cream-12);
+            padding: 56px 48px 36px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: start;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-nav-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--cream-30);
+            font-weight: 300;
+            margin-bottom: 4px;
+        }
+
+        .footer-nav a {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--cream-60);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .footer-nav a:hover { color: var(--cream); }
+
+        .footer-monogram {
+            text-align: center;
+        }
+
+        .footer-monogram img {
+            width: 80px;
+            opacity: 0.5;
+            display: block;
+            margin: 0 auto 16px;
+        }
+
+        .footer-tagline {
+            font-family: 'Jost', sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--cream-30);
+            font-weight: 300;
+            white-space: nowrap;
+        }
+
+        .footer-contact {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-contact-label {
+            font-family: 'Jost', sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--cream-30);
+            font-weight: 300;
+            margin-bottom: 4px;
+        }
+
+        .footer-contact a {
+            font-family: 'Cammron', 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--cream-60);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+        }
+
+        .footer-contact a:hover { color: var(--cream); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--cream-12);
+            padding: 20px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .footer-copy {
+            font-family: 'Jost', sans-serif;
+            font-size: 8.5px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(226,214,204,0.2);
+            font-weight: 300;
+        }
+
+        .footer-wrap {
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 540px) {
+            .site-footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 48px 24px 28px;
+            }
+            .footer-contact { text-align: center; }
+            .footer-nav { align-items: center; }
+            .footer-bottom { padding: 20px 24px; }
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 580px) {
+            .path-cards,
+            .branch-grid,
+            .opts-grid.c2,
+            .opts-grid.c3 { grid-template-columns: 1fr; }
+            .screen { padding: 40px 20px 64px; }
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+const S = {
+    screen: 'hero',
+    path: null,
+    subpath: null,
+    qIndex: 0,
+    answers: {}
+};
+
+const history = [];
+
+// ─────────────────────────────────────────────
+// CONTENT DATA
+// ─────────────────────────────────────────────
+const QS = {
+    investment: [
+        {
+            id: 'inv-type',
+            text: 'What type of investment property are you pursuing?',
+            sub: 'Select the option that best reflects your investment strategy.',
+            opts: ['Fix & flip', 'Short-term rental', 'Long-term rental property', 'Still evaluating my options'],
+            cols: 'c2'
+        },
+        {
+            id: 'inv-timeline',
+            text: 'When are you looking to acquire?',
+            sub: '',
+            opts: ['I\'m ready to move now', 'Within 3 months', '3–6 months', '6–12 months'],
+            cols: 'c2'
+        },
+        {
+            id: 'inv-budget',
+            text: 'What is your total purchase budget?',
+            sub: 'This helps Whitney identify the right properties and prepare relevant market data before your conversation.',
+            opts: ['Under $150K', '$150K–$300K', '$300K–$500K', '$500K–$750K', '$750K+', 'Prefer to discuss privately'],
+            cols: 'c2'
+        }
+    ],
+    sell: [
+        {
+            id: 'prop-type',
+            text: 'How would you describe your property?',
+            sub: '',
+            opts: ['Primary residence', 'Estate or luxury property', 'Second home', 'Investment property'],
+            cols: 'c2'
+        },
+        {
+            id: 'value',
+            text: 'What is the approximate value of your home?',
+            sub: 'This helps Whitney provide a more informed market analysis before your consultation.',
+            opts: ['Under $500K', '$500K–$750K', '$750K–$1M', '$1M–$1.5M', '$1.5M+', 'Not sure — that\'s why I\'m here'],
+            cols: 'c2'
+        },
+        {
+            id: 'timeline',
+            text: 'What is your ideal selling timeline?',
+            sub: '',
+            opts: ['Within 90 days', '3–6 months', '6–12 months', 'Still exploring'],
+            cols: 'c2'
+        },
+        {
+            id: 'priority',
+            text: 'What matters most to you in this process?',
+            sub: 'Your answer shapes how Whitney approaches your listing strategy.',
+            opts: ['Maximum sale price', 'Speed & efficiency', 'Privacy & discretion', 'White-glove, full-service experience'],
+            cols: 'c2'
+        },
+        {
+            id: 'experience',
+            text: 'Have you worked with a listing agent before?',
+            sub: '',
+            opts: ['Yes', 'No', 'Yes, but I\'m looking for something different'],
+            cols: 'c3'
+        }
+    ],
+    buy: [
+        {
+            id: 'home-type',
+            text: 'What type of home are you seeking?',
+            sub: '',
+            opts: ['Primary residence', 'Relocation to Lubbock', 'Second home', 'Luxury upgrade'],
+            cols: 'c2'
+        },
+        {
+            id: 'price-range',
+            text: 'What price range are you considering?',
+            sub: '',
+            opts: ['Under $500K', '$500K–$750K', '$750K–$1M', '$1M+', 'Flexible — show me what\'s available'],
+            cols: 'c2'
+        },
+        {
+            id: 'financing',
+            text: 'How would you be financing?',
+            sub: '',
+            opts: ['Pre-approved mortgage', 'Cash purchase', 'Still working on financing', 'Prefer not to say'],
+            cols: 'c2'
+        },
+        {
+            id: 'move-timeline',
+            text: 'What is your ideal move-in timeline?',
+            sub: '',
+            opts: ['As soon as possible', '3–6 months', '6–12 months', 'No rush — finding the right home matters more'],
+            cols: 'c2'
+        },
+        {
+            id: 'priority',
+            text: 'What\'s most important to you in a home?',
+            sub: 'This helps Whitney curate properties that align with your lifestyle.',
+            opts: ['Location & neighborhood', 'Architecture & finishes', 'Privacy & land', 'Entertainer\'s layout'],
+            cols: 'c2'
+        }
+    ]
+};
+
+const END = {
+    investment: {
+        headline: 'Let\'s find your next investment property.',
+        sub: 'Whitney will review your investment profile and reach out within 24 hours with curated opportunities and Lubbock market data relevant to your strategy.',
+        points: [
+            'Targeted property options matched to your investment type and budget',
+            'Local market insight on rental demand, flip margins, and STR performance',
+            'A private, no-pressure conversation to align on your acquisition strategy'
+        ]
+    },
+    sell: {
+        headline: 'Your home deserves a strategy, not just a listing.',
+        sub: 'Whitney will review your property profile and reach out to schedule a private consultation — on your timeline, at your pace.',
+        points: [
+            'A complimentary, in-depth home valuation',
+            'A tailored listing strategy built around your goals',
+            'White-glove representation from the first conversation forward'
+        ]
+    },
+    buy: {
+        headline: 'The right home is out there. Let\'s find it.',
+        sub: 'Whitney will review your preferences and be in touch to begin curating properties that align with your lifestyle and criteria.',
+        points: [
+            'A curated selection of properties matched to your criteria',
+            'Exclusive access to off-market and pre-market listings',
+            'Dedicated representation with your interests at the center'
+        ]
+    }
+};
+
+// ─────────────────────────────────────────────
+// FOOTER
+// ─────────────────────────────────────────────
+function footerHTML() {
+    return `
+    <div class="footer-wrap">
+        <div class="site-footer">
+            <div class="footer-nav">
+                <div class="footer-nav-label">Explore</div>
+                <a href="#" onclick="startBuySell(); return false;">Buy or Sell</a>
+                <a href="#" onclick="startInvestment(); return false;">Investment Opportunities</a>
+            </div>
+            <div class="footer-monogram">
+                <a href="#" onclick="hero(); return false;" style="display:block;">
+                    <img src="monogram.png" alt="WP Monogram">
+                </a>
+                <div class="footer-tagline">Lubbock, Texas</div>
+            </div>
+            <div class="footer-contact">
+                <div class="footer-contact-label">Get in Touch</div>
+                <a href="tel:8065490015">806-549-0015</a>
+                <a href="mailto:wpendergrass@kw.com">wpendergrass@kw.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copy">&copy; ${new Date().getFullYear()} Whitney Pendergrass Real Estate &nbsp;·&nbsp; All Rights Reserved</span>
+        </div>
+    </div>`;
+}
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function wm(small = false) {
+    const w = small ? '180px' : '260px';
+    return `<div class="wordmark${small ? ' sm' : ''}">
+        <a href="#" onclick="hero(); return false;" style="display:block;">
+            <img src="logo.png" alt="Whitney Pendergrass Real Estate" style="width:${w}; opacity:0.92; display:block; margin:0 auto;">
+        </a>
+        <div class="wm-rule"></div>
+    </div>`;
+}
+
+function mount(html) {
+    document.getElementById('app').innerHTML = html + footerHTML();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function push(fn) { history.push(fn); }
+
+function goBack() {
+    if (history.length) history.pop()();
+}
+
+// ─────────────────────────────────────────────
+// SCREENS
+// ─────────────────────────────────────────────
+
+function hero() {
+    mount(`
+    <div class="screen">
+        <div class="hero-inner">
+            ${wm()}
+            <p class="hero-eyebrow">Lubbock, Texas &nbsp;·&nbsp; Luxury Real Estate</p>
+            <h1 class="hero-headline">Luxury is in the details.</h1>
+            <div class="hero-rule"></div>
+            <div class="path-cards">
+                <div class="path-card" onclick="startInvestment()">
+                    <div class="pc-eyebrow">Explore</div>
+                    <div class="pc-title">Investment<br>Opportunities</div>
+                    <span class="pc-arrow">→</span>
+                </div>
+                <div class="path-card" onclick="startBuySell()">
+                    <div class="pc-eyebrow">I'm ready to</div>
+                    <div class="pc-title">Buy or Sell<br>a Home</div>
+                    <span class="pc-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </div>`);
+}
+
+function branch() {
+    mount(`
+    <div class="screen">
+        ${wm(true)}
+        <div class="q-inner">
+            <div class="q-counter">Tell us a little more</div>
+            <h2 class="q-text">What brings you here today?</h2>
+            <p class="q-sub">Select the option that best describes your situation.</p>
+            <div class="opts-grid branch-grid">
+                <div class="opt" onclick="pickBranch('sell')">I'm looking to sell</div>
+                <div class="opt" onclick="pickBranch('buy')">I'm looking to buy</div>
+                <div class="opt" onclick="pickBranch('sell')">I'm considering both</div>
+            </div>
+        </div>
+    </div>`);
+}
+
+function question(path, idx) {
+    const qs = QS[path];
+    const q  = qs[idx];
+    const total = qs.length;
+    const pct = (idx / total) * 100;
+    const sel = S.answers[`${path}__${q.id}`] || null;
+
+    const opts = q.opts.map(o => {
+        const isSel = sel === o;
+        const safe = o.replace(/'/g, "\\'").replace(/`/g, '\\`');
+        return `<div class="opt${isSel ? ' sel' : ''}"
+            onclick="pick(this,'${path}','${q.id}',\`${safe}\`)">${o}</div>`;
+    }).join('');
+
+    mount(`
+    <div class="screen">
+        <div class="q-inner">
+            <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%"></div></div>
+            ${wm(true)}
+            <div class="q-counter">${String(idx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}</div>
+            <h2 class="q-text">${q.text}</h2>
+            ${q.sub ? `<p class="q-sub">${q.sub}</p>` : ''}
+            <div class="opts-grid ${q.cols}" id="og">${opts}</div>
+            <div class="nav-row">
+                <button class="btn-back" onclick="goBack()">← Back</button>
+                <button class="btn-next${sel ? ' on' : ''}" id="bn"
+                    onclick="advance('${path}',${idx})">
+                    ${idx < total - 1 ? 'Continue' : 'Almost there'}
+                </button>
+            </div>
+        </div>
+    </div>`);
+}
+
+function contact(path) {
+    const copy = {
+        investment: { h: 'Let\'s begin your investment conversation.', s: 'Your information is kept entirely private. Whitney will reach out personally within 24 hours.' },
+        sell:       { h: 'Tell Whitney a little about yourself.',       s: 'Whitney will review your profile and reach out to schedule a private, no-obligation consultation.' },
+        buy:        { h: 'Let\'s find your next home.',                  s: 'Whitney will review your preferences and be in touch to begin your curated property search.' }
+    }[path];
+
+    const extra = {
+        sell: `<div class="fgroup">
+            <label class="flabel">Property Address <span style="opacity:.4;">(Optional)</span></label>
+            <input class="finput" type="text" id="f-addr" placeholder="Your property address">
+        </div>`,
+        buy: `<div class="fgroup">
+            <label class="flabel">Anything else Whitney should know?</label>
+            <textarea class="finput" id="f-notes" placeholder="Neighborhoods, must-haves, or anything on your mind…"></textarea>
+        </div>`,
+        investment: `<div class="fgroup">
+            <label class="flabel">Preferred way to connect</label>
+            <input class="finput" type="text" id="f-pref" placeholder="Call, email, or text">
+        </div>`
+    }[path];
+
+    mount(`
+    <div class="screen">
+        <div class="form-inner">
+            ${wm(true)}
+            <h2 class="form-headline">${copy.h}</h2>
+            <p class="form-sub">${copy.s}</p>
+            <div class="fgroup">
+                <label class="flabel">Full Name</label>
+                <input class="finput" type="text" id="f-name" placeholder="Your name">
+            </div>
+            <div class="fgroup">
+                <label class="flabel">Phone</label>
+                <input class="finput" type="tel" id="f-phone" placeholder="Your phone number">
+            </div>
+            <div class="fgroup">
+                <label class="flabel">Email</label>
+                <input class="finput" type="email" id="f-email" placeholder="Your email address">
+            </div>
+            ${extra}
+            <p class="form-privacy">Your information is never shared or sold. Whitney reviews every inquiry personally.</p>
+            <button class="btn-submit" onclick="submit('${path}')">Schedule Your Consultation</button>
+            <button class="btn-back" onclick="goBack()">← Back</button>
+        </div>
+    </div>`);
+}
+
+function endPage(path) {
+    const c = END[path];
+    const pts = c.points.map(p => `<li>${p}</li>`).join('');
+    mount(`
+    <div class="screen">
+        <div class="end-inner">
+            ${wm(true)}
+            <p class="end-eyebrow">Thank you</p>
+            <h2 class="end-headline">${c.headline}</h2>
+            <p class="end-sub">${c.sub}</p>
+            <div class="end-divider"></div>
+            <ul class="end-points">${pts}</ul>
+            <div class="end-contact">
+                Whitney Pendergrass &nbsp;·&nbsp; 806-549-0015<br>
+                wpendergrass@kw.com
+            </div>
+        </div>
+    </div>`);
+}
+
+// ─────────────────────────────────────────────
+// ACTIONS
+// ─────────────────────────────────────────────
+function startInvestment() {
+    S.path = 'investment';
+    S.qIndex = 0;
+    question('investment', 0);
+}
+
+function startBuySell() {
+    push(hero);
+    branch();
+}
+
+function pickBranch(sub) {
+    push(branch);
+    S.subpath = sub;
+    S.qIndex = 0;
+    question(sub, 0);
+}
+
+function pick(el, path, qid, val) {
+    el.closest('.opts-grid').querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+    el.classList.add('sel');
+    S.answers[`${path}__${qid}`] = val;
+    const bn = document.getElementById('bn');
+    if (bn) bn.classList.add('on');
+}
+
+function advance(path, idx) {
+    const qs = QS[path];
+    const q  = qs[idx];
+    if (!S.answers[`${path}__${q.id}`]) return;
+    push(() => question(path, idx));
+    if (idx < qs.length - 1) {
+        question(path, idx + 1);
+    } else {
+        contact(path);
+    }
+}
+
+function submit(path) {
+    const nameEl  = document.getElementById('f-name');
+    const phoneEl = document.getElementById('f-phone');
+    const emailEl = document.getElementById('f-email');
+    let ok = true;
+    [nameEl, phoneEl, emailEl].forEach(el => {
+        if (!el.value.trim()) { el.classList.add('err'); ok = false; }
+        else el.classList.remove('err');
+    });
+    if (!ok) return;
+
+    const pathLabel = path === 'investment' ? 'Investment Opportunities' : path === 'sell' ? 'Sell a Home' : 'Buy a Home';
+
+    const data = {
+        _subject: `New Lead: ${nameEl.value.trim()} — ${pathLabel}`,
+        name:     nameEl.value.trim(),
+        phone:    phoneEl.value.trim(),
+        email:    emailEl.value.trim(),
+        inquiry:  pathLabel
+    };
+
+    // Extra path-specific field
+    const extra = document.getElementById('f-addr') || document.getElementById('f-notes') || document.getElementById('f-pref');
+    if (extra && extra.value.trim()) {
+        data[extra.id === 'f-addr' ? 'property_address' : extra.id === 'f-notes' ? 'additional_notes' : 'preferred_contact'] = extra.value.trim();
+    }
+
+    // Attach all quiz answers
+    Object.entries(S.answers).forEach(([key, val]) => {
+        if (key.startsWith(path + '__')) {
+            const label = key.replace(path + '__', '').replace(/-/g, ' ');
+            data[label] = val;
+        }
+    });
+
+    const btn = document.querySelector('.btn-submit');
+    if (btn) { btn.textContent = 'Sending…'; btn.style.opacity = '0.6'; btn.style.pointerEvents = 'none'; }
+
+    fetch('https://formspree.io/f/xzdkqpzq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok || res.next) {
+            push(() => contact(path));
+            endPage(path);
+        } else {
+            if (btn) { btn.textContent = 'Schedule Your Consultation'; btn.style.opacity = '1'; btn.style.pointerEvents = 'all'; }
+        }
+    })
+    .catch(() => {
+        if (btn) { btn.textContent = 'Schedule Your Consultation'; btn.style.opacity = '1'; btn.style.pointerEvents = 'all'; }
+    });
+}
+
+// ─────────────────────────────────────────────
+// BOOT
+// ─────────────────────────────────────────────
+hero();
+</script>
+</body>
+</html>
