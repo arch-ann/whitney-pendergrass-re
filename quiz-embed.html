@@ -43,6 +43,9 @@ body {
     margin: 0 auto;
     padding: 28px 28px 48px;
 }
+.wrap.bg {
+    background: var(--navy);
+}
 
 /* ── LOGO ── */
 .logo-wrap { display:none; }
@@ -353,7 +356,7 @@ function pathChoice() {
 }
 
 function branch() {
-    mount(`<div class="wrap">
+    mount(`<div class="wrap bg">
         ${logoHTML()}
         <div class="q-counter">Tell us a little more</div>
         <h2 class="q-text">What brings you here today?</h2>
@@ -377,7 +380,7 @@ function question(path, idx) {
         const safe = o.replace(/'/g,"\\'").replace(/`/g,'\\`');
         return `<div class="opt${isSel?' sel':''}" onclick="pick(this,'${path}','${q.id}',\`${safe}\`)">${o}</div>`;
     }).join('');
-    mount(`<div class="wrap">
+    mount(`<div class="wrap bg">
         <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
         ${logoHTML()}
         <div class="q-counter">${String(idx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}</div>
@@ -404,7 +407,7 @@ function contactScreen(path) {
         buy:`<div class="fgroup"><label class="flabel">Anything else Whitney should know?</label><textarea class="finput" id="f-notes" placeholder="Neighborhoods, must-haves, or anything on your mind…"></textarea></div>`,
         investment:`<div class="fgroup"><label class="flabel">Preferred way to connect</label><input class="finput" type="text" id="f-pref" placeholder="Call, email, or text"></div>`
     }[path];
-    mount(`<div class="wrap">
+    mount(`<div class="wrap bg">
         ${logoHTML()}
         <h2 class="form-headline">${copy.h}</h2>
         <p class="form-sub">${copy.s}</p>
@@ -421,7 +424,7 @@ function contactScreen(path) {
 function endScreen(path) {
     const c = END[path];
     const pts = c.pts.map(p=>`<li>${p}</li>`).join('');
-    mount(`<div class="wrap" style="text-align:center;">
+    mount(`<div class="wrap bg" style="text-align:center;">
         ${logoHTML()}
         <p class="end-eye">Thank you</p>
         <h2 class="end-h">${c.h}</h2>
